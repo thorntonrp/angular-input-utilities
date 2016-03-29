@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="angular-input-utilities">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Input Utilities</title>
+
+    <!--bower:css-->
+    <!--endbower-->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="dist/angular-input-utilities.css">
+    <!-- endinject -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<div ng-controller="ctrl as vm">
+    Test: {{vm.test}}
+    <close-icon></close-icon>
+</div>
+
+<!--bower:js-->
+<script src="lib/angular/angular.js"></script>
+<!--endbower-->
+
+<!-- inject:js -->
+<script src="src/alphaNumericOnly/alpha-numeric-only.js"></script>
+<script src="src/checkbox-list/checkbox-list-dx.js"></script>
+<script src="src/clearInput/clear-input.js"></script>
+<script src="src/close-icon/close-icon-dx.js"></script>
+<script src="src/focusOnStateLoad/focusOnStateLoad-dx.js"></script>
+<script src="src/multi-select-row/multi-select-row-dx.js"></script>
+<script src="src/multi-select-row/unique-anchor-service.js"></script>
+<script src="src/posIntegerOnly/pos-int-only.js"></script>
+<script src="src/saveButton/save-button-dx.js"></script>
+<script src="src/typeAhead/type-ahead-dx.js"></script>
+<script src="src/selectAllOnFocus/selectAllOnFocus-dx.js"></script>
+<script src="src/typeahead-select/typeahead-select-dx.js"></script>
+<!-- endinject -->
+
+<script type="application/javascript">
+    angular.module('angular-input-utilities').controller('ctrl', [function(){
+        var vm = this;
+        vm.test = 'Test Complete';
+    }])
+</script>
+</body>
+</html>

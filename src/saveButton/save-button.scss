@@ -1,0 +1,39 @@
+.general-save-btn {
+    position: absolute;
+    top: -57px;
+    right: 0;
+}
+
+@media (max-width: 1024px) {
+    .general-save-btn {
+        position: absolute;
+        top: -68px;
+        right: 5px;
+    }
+}
+
+.restriction-save-btn {
+    padding-right: 20px;
+}
+.save-btn {
+
+    .btn-loading-beacon {
+        left: 5px !important;
+        top: 9px !important;
+        div {
+            background: white !important;
+        }
+    }
+
+    .btn-warning {
+        transition: all 0.5s;
+    }
+
+    .btn-primary {
+        transition: all 0.5s;
+    }
+
+    .btn-success {
+        transition: all 0.5s;
+    }
+}

@@ -1,0 +1,43 @@
+close-icon {
+    display: table-cell;
+    padding-right: 10px;
+    vertical-align: initial;
+    color: gainsboro;
+    transition: all 0.3s;
+
+    .close-icon-group {
+        .unclose-icon {
+            position: absolute !important;
+            top: -9px;
+            left: -4px;
+            font-size: 26px;
+            font-weight: bold;
+            color: rgba(139, 0, 0, 0.40);
+        }
+        .unclose-icon:hover {
+            color: darkred;
+        }
+
+        .fa-close:hover {
+            color: darkred;
+        }
+
+        .close-icon {
+            transform: rotate(0deg);
+            transition: transform .3s ease ;
+        }
+        .un-close-icon {
+            transform: rotate(45deg);
+            transition: transform .3s ease ;
+        }
+        .un-close-icon:hover {
+            color: green;
+        }
+
+        .stacked-close-icon.fa-close:hover {
+            color:gainsboro;
+        }
+    }
+}
+
+

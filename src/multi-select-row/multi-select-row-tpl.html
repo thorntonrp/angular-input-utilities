@@ -1,0 +1,25 @@
+<div class="row multi-select-row">
+    <div class="col-xs-10 row-item-data">
+        <div class="heading-6" style="margin-bottom: 5px">{{multiSelectRow.rowTitle}}</div>
+        <p ng-repeat="selectedOption in multiSelectRow.selectedOptions">
+            <close-icon id="removeMultiSelectionItem-{{$index}}" class="close-icon"
+                        ng-click="multiSelectRow.removeOptionFromSelectList(selectedOption.id)"></close-icon>
+            <span id="multiSelectedItemsText-{{$index}}" class="row-item-data-text">{{multiSelectRow.getSelectedOptionText(selectedOption.id)}}</span>
+        </p>
+        <p class="noneSelected" ng-if="multiSelectRow.selectedOptions.length == 0">
+            <strong>None selected</strong>
+        </p>
+    </div>
+    <div class="col-xs-2 multi-select-col">
+        <div class="multi-select-group">
+            <div class="multi-select-label">{{multiSelectRow.multiSelectTitle}}</div>
+            <div ng-dropdown-multiselect
+                 ng-click="multiSelectRow.goToOptions()"
+                 options="multiSelectRow.options"
+                 events = "multiSelectRow.events"
+                 selected-model="multiSelectRow.selectedOptions"
+                 extra-settings="multiSelectRow.extraSettings"
+                 translation-texts="multiSelectRow.translationTexts"></div>
+        </div>
+    </div>
+</div>

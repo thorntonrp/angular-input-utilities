@@ -1,0 +1,22 @@
+<span class="save-btn">
+    <button class="btn btn-with-icon" id="the-save-btn"
+            type="submit"
+            ng-click="saveButton.saveFn()"
+            ng-class="{ 'btn-success' : !saveButton.savingChangesTrigger && !saveButton.unsavedChangesTrigger,
+                        'btn-warning' : saveButton.unsavedChangesTrigger && !saveButton.savingChangesTrigger,
+                        'btn-danger-hover' : saveButton.savingChangesTrigger}"
+            ng-disabled="!saveButton.unsavedChangesTrigger">
+
+        <!--SAVING-->
+        <div ng-if="saveButton.savingChangesTrigger">
+            <div class="relative-position" ><util-spinner class-name="btn-loading-beacon"></util-spinner></div>
+            <div class="margin-left-20">Saving Changes</div>
+        </div>
+
+        <!--ALL CHANGES UP TO DATE-->
+        <span ng-if="!saveButton.savingChangesTrigger && !saveButton.unsavedChangesTrigger"><i class="lds-icon lds-icon-check"></i> Changes are up to date</span>
+
+        <!--UNSAVED CHANGES-->
+        <span ng-if="saveButton.unsavedChangesTrigger && !saveButton.savingChangesTrigger"><i class="lds-icon lds-icon-warning"></i>Save Changes</span>
+    </button>
+</span>

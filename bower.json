@@ -1,0 +1,7 @@
+{
+  "name": "angular-input-utilities",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.6"
+  }
+}

@@ -1,0 +1,20 @@
+<div class="checkbox-list">
+    <div ng-if="checkboxList.isHierarchical" style="font-size: 13px" class="hide-on-disabled">(Restrictions are listed in hierarchical order. If a lower level restriction is selected, all higher level restrictions must also be selected.)</div>
+    <div class="checkbox" ng-repeat="item in checkboxList.items track by $index">
+        <input
+            id="restriction-{{$parent.$index+'-'+$index}}"
+            name="restriction-{{$index}}"
+            type="checkbox" ng-change="(checkboxList.isHierarchical) ? checkboxList.hierarchyCheck(item.selected, $index) : ''"
+            ng-model="item.selected">
+        <label>{{item.description}}</label>
+    </div>
+
+    <!--hidden input for validation purposes-->
+    <select class="validation-checkbox"
+            name="field_validation"
+            required
+            title="(Check at least one box.)"
+            ng-show="checkboxList.validationChecker()"
+            ng-options="item.id as item.description for item in [{id: 1, description: ''}]"
+            ng-model="checkboxList.valid"></select>
+</div>

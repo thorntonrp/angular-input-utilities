@@ -10,7 +10,7 @@
               restrict: 'E',
               controller: 'SaveButtonCtrl',
               controllerAs: 'saveButton',
-              templateUrl: 'app/sharedServices/input/saveButton/save-button-tpl.html',
+              templateUrl: 'src/saveButton/save-button-tpl.html',
               scope: {
                   unsavedChangesTrigger : '=unsavedChangesTrigger',
                   savingChangesTrigger : '=savingChangesTrigger',

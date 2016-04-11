@@ -10,7 +10,7 @@
           restrict: 'E',
           controller: 'MultiSelectRowCtrl',
           controllerAs: 'multiSelectRow',
-          templateUrl: 'app/sharedServices/input/multi-select-row/multi-select-row-tpl.html',
+          templateUrl: 'src/multi-select-row/multi-select-row-tpl.html',
           bindToController: true,
           scope: {
               multiSelectAttributes: '=multiSelectAttributes',

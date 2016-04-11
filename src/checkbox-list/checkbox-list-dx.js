@@ -11,7 +11,7 @@
           controller: 'CheckboxListCtrl',
           controllerAs: 'checkboxList',
           bindToController: true,
-          templateUrl: 'app/sharedServices/input/checkbox-list/checkbox-list-tpl.html',
+          templateUrl: 'src/checkbox-list/checkbox-list-tpl.html',
           scope: {
               items: '=items',
               isHierarchical: '=isHierarchical'

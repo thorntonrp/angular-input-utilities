@@ -11,11 +11,13 @@ var gulp = require('gulp')
     , util = require('gulp-util')
     , watch = require('gulp-watch')
     , del = require('del')
+    , add = require('gulp-add-src')
     , rename = require('gulp-rename')
     , plumber = require('gulp-plumber')
     , wiredep = require('wiredep')
     , plugins = require('gulp-load-plugins')()
-    , runSequence = require('run-sequence');
+    , runSequence = require('run-sequence')
+    , ngtemplate = require('gulp-angular-templatecache');
 
 
 
@@ -67,7 +69,7 @@ gulp.task('clean', function(cb) {
 gulp.task('build', ['clean'], function (cb) {
     'use strict';
     console.log('Entered build phase');
-    return runSequence('sass', 'js', 'wiredep', cb);
+    return runSequence('sass', 'templates', 'js', 'wiredep', cb);
 });
 
 /***************************************************************************
@@ -101,13 +103,28 @@ gulp.task('js', function () {
     'use strict';
     //build the final js output
     return gulp.src(config.js)
+        .on('end', function(){ return del([config.buildTarget + '/generated']); })
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(ngannotate())
         .pipe(stripdebug())
+        .pipe(add.append(config.buildTarget +'/generated/ngtemplates.js'))
         .pipe(concat(config.appName + '.min.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(config.buildTarget));
+});
+
+/*****************************************************************************************************
+ * TEMPLATES
+ * Injects all of my html templates into $templateCache.
+ *****************************************************************************************************/
+gulp.task('templates', function () {
+    return gulp.src('./src/**/*-tpl.html')
+        .pipe(ngtemplate('ngtemplates.js', {
+            module: config.appName,
+            root: 'src/'
+        }))
+        .pipe(gulp.dest(config.buildTarget + '/generated'));
 });
 
 /*****************************************************************************************************

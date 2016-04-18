@@ -15,8 +15,8 @@ angular.module('angular-input-utilities')
                         return;
                     }
                     //The user entered a character so value is undefined
-                    if (!value) {
-                        if(value !== '') {
+                    if (!value || isNaN(value)) {
+                        if(value !== '' && value !== undefined && value !== null) {
                             $parse(iAttrs.ngModel).assign(scope, oldValue);
                         }
                         return;

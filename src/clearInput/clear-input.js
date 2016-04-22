@@ -10,8 +10,7 @@
       return {
         restrict: 'A',
         link: linker,
-        require: 'ngModel',
-        scope: {}
+        require: 'ngModel'
       };
 
       ////////////////////////////////////////////////////

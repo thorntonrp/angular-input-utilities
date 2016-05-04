@@ -13,7 +13,6 @@
               templateUrl: 'src/saveButton/save-button-tpl.html',
               scope: {
                   unsavedChangesTrigger : '=unsavedChangesTrigger',
-                  savingChangesTrigger : '=savingChangesTrigger',
                   saveFn : '=saveFn'
               },
               bindToController: true
@@ -21,6 +20,16 @@
       }])
     .controller('SaveButtonCtrl', [function() {
         var saveButton = this;
+        saveButton.save = save;
+
+        function save() {
+            saveButton.savingChangesTrigger = true;
+            saveButton.saveFn().then(function(response) {
+                saveButton.savingChangesTrigger = false;
+                return response;
+            });
+        }
+
 
     }]);
 })();

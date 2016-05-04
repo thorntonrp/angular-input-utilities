@@ -1,7 +1,7 @@
 <span class="save-btn">
     <button class="btn btn-with-icon" id="the-save-btn"
             type="submit"
-            ng-click="saveButton.saveFn()"
+            ng-click="saveButton.save()"
             ng-class="{ 'btn-success' : !saveButton.savingChangesTrigger && !saveButton.unsavedChangesTrigger,
                         'btn-warning' : saveButton.unsavedChangesTrigger && !saveButton.savingChangesTrigger,
                         'btn-danger-hover' : saveButton.savingChangesTrigger}"
@@ -9,8 +9,8 @@
 
         <!--SAVING-->
         <div ng-if="saveButton.savingChangesTrigger">
-            <div class="relative-position" ><util-spinner class-name="btn-loading-beacon"></util-spinner></div>
-            <div class="margin-left-20">Saving Changes</div>
+            <div class="save-btn__spinner" ><util-spinner class-name="btn-loading-beacon"></util-spinner></div>
+            <div class="save-btn__saving">Saving Changes</div>
         </div>
 
         <!--ALL CHANGES UP TO DATE-->
@@ -19,4 +19,5 @@
         <!--UNSAVED CHANGES-->
         <span ng-if="saveButton.unsavedChangesTrigger && !saveButton.savingChangesTrigger"><i class="lds-icon lds-icon-warning"></i>Save Changes</span>
     </button>
+    saving: {{saveButton.savingChangesTrigger}}
 </span>

@@ -36,4 +36,10 @@
     .btn-success {
         transition: all 0.5s;
     }
+    .save-btn__spinner {
+        position: relative;
+    }
+    .save-btn__saving {
+        margin-left: 20px;
+    }
 }

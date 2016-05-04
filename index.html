@@ -16,7 +16,7 @@
 <div ng-controller="ctrl as vm">
     Test: {{vm.test}}
     <close-icon></close-icon>
-    <save-button></save-button>
+    <save-button unsaved-changes-trigger="number==0" save-fn="vm.save"></save-button>
     <input type="text" ng-model="number" pos-int-only=""/>
     {{number}}
 </div>
@@ -31,19 +31,22 @@
 <script src="src/clearInput/clear-input.js"></script>
 <script src="src/focusOnStateLoad/focusOnStateLoad-dx.js"></script>
 <script src="src/close-icon/close-icon-dx.js"></script>
+<script src="src/posIntegerOnly/pos-int-only.js"></script>
 <script src="src/multi-select-row/multi-select-row-dx.js"></script>
 <script src="src/multi-select-row/unique-anchor-service.js"></script>
-<script src="src/posIntegerOnly/pos-int-only.js"></script>
-<script src="src/saveButton/save-button-dx.js"></script>
 <script src="src/selectAllOnFocus/selectAllOnFocus-dx.js"></script>
+<script src="src/saveButton/save-button-dx.js"></script>
 <script src="src/typeAhead/type-ahead-dx.js"></script>
 <script src="src/typeahead-select/typeahead-select-dx.js"></script>
 <!-- endinject -->
 
 <script type="application/javascript">
-    angular.module('angular-input-utilities').controller('ctrl', [function(){
+    angular.module('angular-input-utilities').controller('ctrl', ['$timeout', function($timeout){
         var vm = this;
         vm.test = 'Test Complete';
+        vm.save = function() {
+            return $timeout(function() { console.log('Saved Changes!'); }, 100000);
+        }
     }])
 </script>
 </body>

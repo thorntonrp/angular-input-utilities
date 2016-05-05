@@ -14,10 +14,9 @@
         </div>
 
         <!--ALL CHANGES UP TO DATE-->
-        <span ng-if="!saveButton.savingChangesTrigger && !saveButton.unsavedChangesTrigger"><i class="lds-icon lds-icon-check"></i> Changes are up to date</span>
+        <span ng-if="!saveButton.savingChangesTrigger && !saveButton.unsavedChangesTrigger"><i class="lumen-icon__graphic lumen-icon__graphic--check-open"></i> Changes are up to date</span>
 
         <!--UNSAVED CHANGES-->
-        <span ng-if="saveButton.unsavedChangesTrigger && !saveButton.savingChangesTrigger"><i class="lds-icon lds-icon-warning"></i>Save Changes</span>
+        <span ng-if="saveButton.unsavedChangesTrigger && !saveButton.savingChangesTrigger"><i class="lumen-icon__graphic lumen-icon__graphic--warning"></i>Save Changes</span>
     </button>
-    saving: {{saveButton.savingChangesTrigger}}
 </span>

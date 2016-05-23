@@ -18,13 +18,13 @@
               bindToController: true
           };
       }])
-    .controller('SaveButtonCtrl', [function() {
+    .controller('SaveButtonCtrl', ['$q', function($q) {
         var saveButton = this;
         saveButton.save = save;
 
         function save() {
             saveButton.savingChangesTrigger = true;
-            saveButton.saveFn().then(function(response) {
+            $q.resolve(saveButton.saveFn()).then(function (response) {
                 saveButton.savingChangesTrigger = false;
                 return response;
             });
